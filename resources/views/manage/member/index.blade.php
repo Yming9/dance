@@ -12,8 +12,8 @@
                         <div class="form-group">
                             <label class="col-md-1 control-label">名称</label>
                             <div class="col-md-2">
-                                <input type="text" class="form-control" name="nickname"
-                                       value="{{ \Illuminate\Support\Facades\Input::get('nickname') }}"/>
+                                <input type="text" class="form-control" name="name"
+                                       value="{{ \Illuminate\Support\Facades\Input::get('name') }}"/>
                             </div>
                             <div class="col-md-offset-1 col-md-2">
                                 <button class="btn btn-default" type="submit"><i class="fa fa-search"></i> 确定
@@ -29,27 +29,31 @@
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tr>
-                            <th>Id</th>
-                            <th>openid</th>
-                            <th>头像</th>
-                            <th>昵称</th>
-                            <th>积分</th>
-                            <th>书券</th>
-                            <th>注册时间</th>
+                            <th>ID</th>
+                            <th>名字</th>
+                            <th>机构名称</th>
+                            <th>手机号</th>
+                            <th>密码</th>
+                            <th>邮箱</th>
+                            <th>有效证件</th>
+                            <th>报名方式</th>
                             <th>操作</th>
                         </tr>
                         @foreach($lists as $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
-                                <td>{{ $item->openid }}</td>
-                                <td><img src="{{ $item->avatar }}"></td>
-                                <td>{{ $item->nickname }}</td>
-                                <td>{{ $item->integral }}</td>
-                                <td>{{ $item->book_token }}</td>
-                                <td>{{ $item->created_at }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->agency }}</td>
+                                <td>{{ $item->phone }}</td>
+                                <td>{{ decrypt($item->password) }}</td>
+                                <td>{{ $item->email }}</td>
+                                <td>{{ $item->valid_card }}</td>
+                                <td > <span class="label {{$item->signCss[$item->sign_mode]}}">{{ $item->signText[$item->sign_mode]  }}</span></td>
                                 <td>
-                                    <input type="text" class="form-control " value="" style="width: 100px;float: left;">
-                                    <button class="form-control integral" style="width: 100px;float: left;" data-id="{{ $item->id }}">添加积分</button>
+                                   {{-- <input type="text" class="form-control " value="" style="width: 100px;float: left;">
+                                    <button class="form-control integral" style="width: 100px;float: left;" data-id="{{ $item->id }}">添加积分</button>--}}
+                                    <a href="{{ url('/manage/member/index/'.$item->id.'/edit/') }}" class="btn btn-default">修改</a>
+                                    <a href="{{ url('/manage/member/index/'.$item->id) }}" class="btn btn-default delete">删除</a>
                                 </td>
                             </tr>
                         @endforeach

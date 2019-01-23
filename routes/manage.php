@@ -16,7 +16,20 @@ Route::group(['prefix' => '/manage', 'namespace' => 'Manage', 'middleware' => 'l
 
     ## 用户管理
     $app->group(['prefix' => '/member'], function ($app) {
-        $app->get('index', 'MemberController@index');
+        $app->resource('index', 'MemberController');
     });
+
+    ##报名人员管理
+    $app->resource('register','RegisterController');
+    $app->get('register/status/{id}','RegisterController@status');
+
+    ##舞蹈类别管理
+    $app->resource('cate','CateController');
+
+    ##舞种管理
+    $app->resource('race','RaceController');
+
+    ##赛区管理
+    $app->resource('zone','ZoneController');
 });
 

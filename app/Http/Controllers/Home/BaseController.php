@@ -86,4 +86,5 @@ class BaseController extends Controller
         $jsconfig = $js->config(['onMenuShareAppMessage', 'onMenuShareTimeline']);
         return $jsconfig;
     }
+
 }

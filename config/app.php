@@ -186,6 +186,7 @@ return [
 
         # excel
         Maatwebsite\Excel\ExcelServiceProvider::class,
+
     ],
 
     /*
