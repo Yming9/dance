@@ -23,7 +23,7 @@
                                     <p>2、支付宝扫码转账</p>
                                     <div class="pay_img">
                                         {{--<img src="{{url('images/home/pay_zfb.png')}}" alt="">--}}
-                                        <h3><a href="#" class="btn btn-primary">点击支付宝扫码支付</a></h3>
+                                        <h3><a href="{{url('/home/alipay/'.$id)}}" class="btn btn-primary">点击支付宝扫码支付</a></h3>
                                     </div>
                                 </div>
                             </div>

@@ -44,7 +44,7 @@ Route::group(['prefix' => '/home', 'namespace' => 'Home'], function ($app) {
         $app->post('register/update/{id}','RegisterController@update');
 
         //支付宝支付
-        $app->get('alipay','AlipayController@alipay');
+        $app->get('alipay/{id}','AlipayController@alipay');
         $app->post('alipay/payback','AlipayController@payback');
         $app->get('alipay/payback','AlipayController@payback');
         $app->get('alipay/notify','AlipayController@notify');

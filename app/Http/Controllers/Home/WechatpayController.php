@@ -40,7 +40,6 @@ class WechatpayController extends BaseController
             'total_fee' => '10', // 单位：分
             //'notify_url' =>  url('order/pay_callback'), // 支付结果通知网址，如果不设置则会使用配置里的默认地址
             //'openid' => '', // trade_type=JSAPI，此参数必传，用户在商户appid下的唯一标识，
-            // ...
         ];
         //根据$result->url生成二维码
        /* $qrCode = new QrCode('www.baidu.com');
